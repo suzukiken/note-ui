@@ -1,4 +1,7 @@
 import React from 'react';
+import Search from './Search';
+import Entry from './Entry';
+import Home from './Home';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -61,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   const classes = useStyles();
+  
   return (
     <React.Fragment>
       <CssBaseline />
@@ -68,13 +72,22 @@ export default function App() {
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
             <Link href="/" color="inherit">
-              FigmentResearch
+              Note
             </Link>
           </Typography>
+          <Link href="/search" className={classes.toolbarLink}>
+            SEARCH
+          </Link>
         </Toolbar>
       </AppBar>
       <BrowserRouter>
         <Switch>
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route path="/article/:reponame/">
+            <Entry />
+          </Route>
           <Route path="/">
             <Home />
           </Route>

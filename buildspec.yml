@@ -6,6 +6,7 @@ phases:
       - npm ci
   build:
     commands:
+      - envsubst < aws-exports.template.js > src/aws-exports.js
       - npm run build
 artifacts:
   base-directory: build
