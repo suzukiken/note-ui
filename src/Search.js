@@ -192,7 +192,7 @@ function Search() {
             <Grid component="label" container alignItems="center" spacing={0}>
               <Grid item>記事</Grid>
               <Grid item>
-                <Switch checked={checked} onChange={handleCheckChange} name="checkedC" />
+                <Switch checked={checked} onChange={handleCheckChange} />
               </Grid>
               <Grid item>コード</Grid>
             </Grid>
