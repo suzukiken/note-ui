@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
+import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -20,17 +21,18 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0, 0, 0)
   },
   contentTag: {
-    margin: theme.spacing(1, 1),
+    margin: theme.spacing(0.3, 0.7, 0.5, 0),
     fontFamily: "M PLUS 1p",
     fontStyle: 'normal',
     fontWeight: 'Thin',
-    fontSize: 13,
+    fontSize: 11,
     letterSpacing: 0.5,
-    lineHeight: 1.7
+    lineHeight: 1.0
   },
   contentDate: {
-    margin: theme.spacing(0, 1),
+    margin: theme.spacing(0.5, 0),
     fontSize: 12,
+    fontWeight: 'Thin',
   },
   root: {
     flexGrow: 1,
@@ -76,7 +78,7 @@ function Home() {
     <React.Fragment> 
       <Container maxWidth="lg" component="main" className={classes.heroContent}>
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Articles
+          Note
         </Typography>
       </Container>
       <Container maxWidth="sm" className={classes.container}>
@@ -94,12 +96,13 @@ function Home() {
                 {content.content}
               </div>
               <div>
-                {content.filename}
-                <span className={classes.contentDate}>{content.date}</span>
+                <Box className={classes.contentDate}>
+                  {content.reponame + ' ' + content.date}
+                </Box>
               </div>
               <div>
                 {content.tags.map((tag) => (
-                  <span key={tag} className={classes.contentTag}>{tag}</span>
+                  <Chip key={tag} className={classes.contentTag} label={tag} size="small" />
                 ))}
               </div>
             </Box>
