@@ -13,6 +13,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Divider from '@material-ui/core/Divider';
 import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(5, 0),
   },
   contentContent: {
-    margin: theme.spacing(0.5, 0, 0),
+    margin: theme.spacing(2, 0, 0),
   },
   slider: {
     width: 150
@@ -59,11 +60,11 @@ function HighlightedCode(props) {
   
   if (props.highlight.code) {
     for (let i in props.highlight.code) {
-      contents += '.....' + props.highlight.code[i] + '.....'
+      contents += props.highlight.code[i]
     }
   }
   return (
-    <Box className={classes.contentContent} dangerouslySetInnerHTML={{__html: contents}} />
+    <pre className={classes.contentContent} dangerouslySetInnerHTML={{__html: contents}} />
   )
 }
 
@@ -88,7 +89,9 @@ function Programs(props) {
     <React.Fragment key={index}> 
       <Box className={classes.contentTitle}>
         <Typography align="left">
+          <Link href={`${row.id}`}>
           {row.id}
+          </Link>
         </Typography>
       </Box>
       <HighlightedCode highlight={row.highlight} />
@@ -105,7 +108,9 @@ function Articles(props) {
     <React.Fragment key={index}> 
       <Box className={classes.contentTitle}>
         <Typography variant="h6" align="left">
+          <Link href={`/article/${row.reponame}/`}>
           {row.title}
+          </Link>
         </Typography>
       </Box>
       <HighlightedContent highlight={row.highlight} />
