@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
   contentContent: {
     margin: theme.spacing(2, 0, 0),
   },
+  codeTitle: {
+    fontSize: 16
+  },
   slider: {
     width: 150
   },
@@ -88,9 +91,9 @@ function Programs(props) {
   const programList = props.programs.map((row, index) =>
     <React.Fragment key={index}> 
       <Box className={classes.contentTitle}>
-        <Typography align="left">
+        <Typography align="left" className={classes.codeTitle}>
           <Link href={`${row.id}`}>
-          {row.id}
+          {row.id.replace('https://github.com/suzukiken/', '')}
           </Link>
         </Typography>
       </Box>

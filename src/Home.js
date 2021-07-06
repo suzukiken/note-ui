@@ -21,18 +21,13 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0, 0, 0)
   },
   contentTag: {
-    margin: theme.spacing(0.3, 0.7, 0.5, 0),
-    fontFamily: "M PLUS 1p",
-    fontStyle: 'normal',
-    fontWeight: 'Thin',
-    fontSize: 11,
-    letterSpacing: 0.5,
-    lineHeight: 1.0
+    margin: theme.spacing(0.3),
+    fontSize: 11
   },
   contentDate: {
     margin: theme.spacing(0.5, 0),
     fontSize: 12,
-    fontWeight: 'Thin',
+    textAlign: 'right',
   },
   root: {
     flexGrow: 1,
@@ -78,7 +73,7 @@ function Home() {
     <React.Fragment> 
       <Container maxWidth="lg" component="main" className={classes.heroContent}>
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Note
+          READMEs
         </Typography>
       </Container>
       <Container maxWidth="sm" className={classes.container}>
@@ -97,11 +92,11 @@ function Home() {
               </div>
               <div>
                 <Box className={classes.contentDate}>
-                  {content.reponame + ' ' + content.date}
+                  {content.reponame} {content.date}
                 </Box>
               </div>
               <div>
-                {content.tags.map((tag) => (
+                {content.tags && content.tags.map((tag) => (
                   <Chip key={tag} className={classes.contentTag} label={tag} size="small" />
                 ))}
               </div>
