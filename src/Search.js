@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 1),
   },
   contentContainer: {
+    flex: 1,
     padding: theme.spacing(5, 0),
   },
   contentContent: {
