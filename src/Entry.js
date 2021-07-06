@@ -29,7 +29,7 @@ function Entry() {
   
   const [content, setContent] = useState({});
   
-  const md_url = 'https://note-dev.figmentresearch.com/articles/' + reponame + '.json'
+  const md_url = 'https://note.figmentresearch.com/articles/' + reponame + '.json'
 
   useEffect(() => {
     async function doGet() {

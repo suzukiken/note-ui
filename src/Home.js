@@ -51,7 +51,7 @@ function Home() {
   
   // https://cdknotestragestack-bucket83908e77-15iapvi94z1g2.s3.ap-northeast-1.amazonaws.com/summary/titles.json
   // https://note-dev.figmentresearch.com/summary/titles.json
-  const titles_url = 'https://note-dev.figmentresearch.com/summary/titles.json'
+  const titles_url = 'https://note.figmentresearch.com/summary/titles.json'
 
   useEffect(() => {
     async function doGet() {
