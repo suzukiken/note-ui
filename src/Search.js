@@ -172,10 +172,10 @@ function Search() {
     <div>
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
         <Typography component="h1" variant="h4" align="center" color="textPrimary" gutterBottom>
-          Search
+          search
         </Typography>
         <Typography variant="h6" align="center" color="textSecondary" component="p">
-          Search by AWS Elasticsearch Service 2.3 t2.micro instance
+          AWS Elasticsearch Service 2.3 t2.micro instance
         </Typography>
       </Container>
       <Box display="flex" justifyContent="center">

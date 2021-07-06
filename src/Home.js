@@ -73,7 +73,7 @@ function Home() {
     <React.Fragment> 
       <Container maxWidth="lg" component="main" className={classes.heroContent}>
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          READMEs
+          index
         </Typography>
       </Container>
       <Container maxWidth="sm" className={classes.container}>
