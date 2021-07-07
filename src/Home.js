@@ -26,8 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   contentDate: {
     margin: theme.spacing(0.5, 0),
-    fontSize: 12,
-    textAlign: 'right',
+    fontSize: 12
   },
   root: {
     flexGrow: 1,
