@@ -1,3 +1,3 @@
-### `npm start`
-### `npm run build`
+* `npm start`
+* `npm run build`
 
