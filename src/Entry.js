@@ -51,16 +51,11 @@ function Entry() {
     <React.Fragment> 
       <Container maxWidth="lg" component="main" className={classes.heroContent}>
         <Typography component="h1" variant="h4" align="center" color="textPrimary" gutterBottom>
-          Markdown Rendering
+          {content.title}
         </Typography>
       </Container>
       <Container maxWidth="sm" className={classes.container}>
         <React.Fragment> 
-          <Box className={classes.contentTitle}>
-            <Typography variant="h5" align="left">
-              {content.title}
-            </Typography>
-          </Box>
           <Box display="flex" justifyContent="left" className={classes.contentContent}>
             { content && content.content && content.content.length > 0 &&
               <Markdown>

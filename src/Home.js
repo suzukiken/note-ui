@@ -72,7 +72,7 @@ function Home() {
   return (
     <React.Fragment> 
       <Container maxWidth="lg" component="main" className={classes.heroContent}>
-        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+        <Typography component="h1" variant="h4" align="center" color="textPrimary" gutterBottom>
           index
         </Typography>
       </Container>
@@ -81,7 +81,7 @@ function Home() {
           <React.Fragment key={content.title}> 
             <Box className={classes.contentTitle}>
               <Typography variant="h6" align="left">
-                <Link href={`/article/${content.reponame}/`}>
+                <Link href={`/article/${content.filename.replace('.json', '')}/`}>
                   {content.title}
                 </Link>
               </Typography>

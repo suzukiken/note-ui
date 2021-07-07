@@ -72,7 +72,7 @@ export default function App() {
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
             <Link href="/" color="inherit">
-              Note
+              Home
             </Link>
           </Typography>
           <Link href="/search" className={classes.toolbarLink}>
