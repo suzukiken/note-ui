@@ -4,7 +4,6 @@ import Entry from './Entry';
 import Home from './Home';
 import Login from './Login';
 import Upload from './Upload';
-import { UserProvider } from './UserContext';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -69,40 +68,38 @@ export default function App() {
   const classes = useStyles();
   
   return (
-    <UserProvider>
-      <React.Fragment>
-        <CssBaseline />
-        <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
-          <Toolbar className={classes.toolbar}>
-            <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-              <Link href="/" color="inherit">
-                Home
-              </Link>
-            </Typography>
-            <Link href="/search" className={classes.toolbarLink}>
-              SEARCH
+    <React.Fragment>
+      <CssBaseline />
+      <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
+        <Toolbar className={classes.toolbar}>
+          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+            <Link href="/" color="inherit">
+              Home
             </Link>
-            <Login />
-          </Toolbar>
-        </AppBar>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/search">
-              <Search />
-            </Route>
-            <Route path="/article/:reponame/">
-              <Entry />
-            </Route>
-            <Route path="/upload">
-              <Upload />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </BrowserRouter>
-      </React.Fragment>
-    </UserProvider>
+          </Typography>
+          <Link href="/search" className={classes.toolbarLink}>
+            SEARCH
+          </Link>
+          <Login />
+        </Toolbar>
+      </AppBar>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route path="/article/:reponame/">
+            <Entry />
+          </Route>
+          <Route path="/upload">
+            <Upload />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </React.Fragment>
   );
 }
 

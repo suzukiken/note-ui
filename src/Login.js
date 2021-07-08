@@ -3,9 +3,9 @@ import Amplify, { Auth, Hub } from 'aws-amplify';
 import { Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { useUserContext } from './UserContext';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
+import IconButton from '@material-ui/core/IconButton';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 const useStyles = makeStyles((theme) => ({
   user: {
@@ -30,9 +30,23 @@ function UserInfo(props) {
   return (null)
 }
 
+function UploadLink(props) {
+  if (props.user) { 
+    return (
+      <IconButton 
+        aria-label="upload" 
+        href="/upload"
+        color="primary"
+      >
+        <CloudUploadIcon />
+      </IconButton>
+    )
+  }
+  return (null)
+}
+
 function Login() {
   const classes = useStyles();
-  const { setUserContext } = useUserContext()
   
   const [user, setUser] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
@@ -74,19 +88,6 @@ function Login() {
       setJwt(jwtToken)
     }
   }, [user])
-  
-  useEffect(() => {
-    if (user) {
-      setUserContext({
-        authenticated: true,
-        user: user
-      })
-    } else {
-      setUserContext({
-        authenticated: false
-      })
-    }
-  }, [user, setUserContext])
 
   function getUser() {
     return Auth.currentAuthenticatedUser()
@@ -98,7 +99,7 @@ function Login() {
   
   return (
     <React.Fragment>
-      { user? <Link href="/upload">UPLOAD</Link> : '' }
+      <UploadLink user={user} />
       <UserInfo userInfo={userInfo} />
       <Box className={classes.signButton}>
         { user?

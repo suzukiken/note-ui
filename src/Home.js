@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import Chip from '@material-ui/core/Chip';
 
@@ -76,31 +75,27 @@ function Home() {
         </Typography>
       </Container>
       <Container maxWidth="sm" className={classes.container}>
-        {contents.map((content) => (
-          <React.Fragment key={content.title}> 
-            <Box className={classes.contentTitle}>
+        {contents.map((content, index1) => (
+          <div key={index1}>
+            <div className={classes.contentTitle}>
               <Typography variant="h6" align="left">
                 <Link href={`/article/${content.filename.replace('.json', '')}/`}>
                   {content.title}
                 </Link>
               </Typography>
-            </Box>
-            <Box className={classes.contentContent}>
-              <div>
-                {content.content}
-              </div>
-              <div>
-                <Box className={classes.contentDate}>
-                  {content.reponame} {content.date}
-                </Box>
-              </div>
-              <div>
-                {content.tags && content.tags.map((tag) => (
-                  <Chip key={tag} className={classes.contentTag} label={tag} size="small" />
-                ))}
-              </div>
-            </Box>
-          </React.Fragment> 
+            </div>
+            <div className={classes.contentContent}>
+              {content.content}
+            </div>
+            <div className={classes.contentDate}>
+              {content.reponame} {content.date}
+            </div>
+            <div>
+              {content.tags && content.tags.map((tag, index2) => (
+                <Chip key={index2} className={classes.contentTag} label={tag} size="small" />
+              ))}
+            </div>
+          </div>
         ))}
       </Container>
     </React.Fragment> 
