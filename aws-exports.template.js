@@ -7,22 +7,7 @@ const awsmobile = {
     "federationTarget": "COGNITO_USER_POOLS",
     "aws_appsync_graphqlEndpoint": "${APPSYNC_GRAPHQL_URL}",
     "aws_appsync_region": "ap-northeast-1",
-    "aws_appsync_authenticationType": "AWS_IAM",
-    "oauth": {
-        "domain": "${COGNITO_USERPOOL_DOMAINNAME}",
-        "scope": [
-            "aws.cognito.signin.user.admin",
-            "email",
-            "openid",
-            "profile"
-        ],
-        "redirectSignIn": "${COGNITO_USERPOOL_SIGNIN_URL}",
-        "redirectSignOut": "${COGNITO_USERPOOL_SIGNOUT_URL}",
-        "responseType": "code"
-    },
-    "federationTarget": "COGNITO_USER_POOLS",
-    "aws_user_files_s3_bucket": "${S3_BUCKETNAME}",
-    "aws_user_files_s3_bucket_region": "ap-northeast-1"
+    "aws_appsync_authenticationType": "AWS_IAM"
 };
 
 export default awsmobile;

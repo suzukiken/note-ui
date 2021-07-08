@@ -2,8 +2,6 @@ import React from 'react';
 import Search from './Search';
 import Entry from './Entry';
 import Home from './Home';
-import Login from './Login';
-import Upload from './Upload';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -80,7 +78,6 @@ export default function App() {
           <Link href="/search" className={classes.toolbarLink}>
             SEARCH
           </Link>
-          <Login />
         </Toolbar>
       </AppBar>
       <BrowserRouter>
@@ -90,9 +87,6 @@ export default function App() {
           </Route>
           <Route path="/article/:reponame/">
             <Entry />
-          </Route>
-          <Route path="/upload">
-            <Upload />
           </Route>
           <Route path="/">
             <Home />
