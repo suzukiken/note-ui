@@ -1,5 +1,3 @@
-import { graphqlOperation, API } from 'aws-amplify';
-import { searchArticles, searchPrograms } from './graphql/queries';
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -9,7 +7,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import LinearProgress from '@material-ui/core/LinearProgress';
 import Divider from '@material-ui/core/Divider';
 import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
@@ -127,36 +124,13 @@ function Articles(props) {
 
 function Search() {
   const classes = useStyles();
-  const [loading, setLoading] = useState(false);
   const [inputText, setInputText] = useState("")
   const [articles, setArticles] = useState([])
   const [programs, setPrograms] = useState([])
   const [checked, setChecked] = useState(true)
   
   async function doSearch() {
-    setLoading(true)
-    if (checked) {
-      try {
-        const response = await API.graphql(graphqlOperation(searchPrograms, {
-          word: inputText
-        }));
-        setLoading(false)
-        console.log(response)
-        setPrograms(response.data.searchPrograms)
-      } catch (err) { console.log('error searchPrograms') }
-    } else {
-      try {
-        const response = await API.graphql(graphqlOperation(searchArticles, {
-          input: {
-            word: inputText,
-            fuzziness: Math.ceil(inputText.length / 6 - 1)
-          }
-        }));
-        setLoading(false)
-        console.log(response)
-        setArticles(response.data.searchArticles)
-      } catch (err) { console.log('error searchArticles') }
-    }
+    console.log('searchArticles')
   }
   
   function handleInputChange(event) {
@@ -174,9 +148,6 @@ function Search() {
         <Typography component="h1" variant="h4" align="center" color="textPrimary" gutterBottom>
           search
         </Typography>
-        <Typography variant="h6" align="center" color="textSecondary" component="p">
-          AWS Elasticsearch Service 2.3 t2.micro instance
-        </Typography>
       </Container>
       <Box display="flex" justifyContent="center">
         <Paper className={classes.root}>
@@ -189,7 +160,6 @@ function Search() {
             onKeyDown={e => {
               if (e.keyCode === 13) {
                 console.log(e.target.value);
-                doSearch()
               }
             }}
           />
@@ -212,7 +182,6 @@ function Search() {
         </Paper>
       </Box>
       <Container maxWidth="sm" className={classes.contentContainer}>
-        { loading ? <LinearProgress /> : '' }
         { checked ? <Programs programs={programs} /> : <Articles articles={articles} /> }
       </Container>
     </div>
